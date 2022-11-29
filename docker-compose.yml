@@ -1,4 +1,4 @@
-version: "3.3"
+version: "3.6"
 
 services:
   frontend:
@@ -45,9 +45,9 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ./pg_data:/var/lib/postgresql/data
+      - pg_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d todolist"]
       interval: 5s
       timeout: 5s
       retries: 5

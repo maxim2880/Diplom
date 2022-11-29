@@ -1,4 +1,4 @@
-version: "3.3"
+version: "3.6"
 
 services:
   frontend:
@@ -12,7 +12,6 @@ services:
     image: mmisyura/diplom:$GITHUB_REF_NAME-$GITHUB_RUN_ID
     restart: always
     environment:
-      DEBUG: ${DEBUG}
       POSTGRES_HOST: ${POSTGRES_HOST}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -21,8 +20,8 @@ services:
     depends_on:
       db:
         condition: service_healthy
-#      migrations:
-#        condition: service_completed_successfully
+      migrations:
+        condition: service_completed_successfully
     ports:
       - "8000:8000"
   migrations:
@@ -48,9 +47,9 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ./pg_data:/var/lib/postgresql/data
+      - pg_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d todolist"]
       interval: 5s
       timeout: 5s
       retries: 5
