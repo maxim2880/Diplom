@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f7bd8bc-98c2-4baf-bdac-fcd0572e83d5" name="Changes" comment="OAuth2.0">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolist/todolist/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/todolist/settings.py" afterDir="false" />
-    </list>
+    <list default="true" id="5f7bd8bc-98c2-4baf-bdac-fcd0572e83d5" name="Changes" comment="Debug added default value" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,7 +137,7 @@
       <workItem from="1670739579594" duration="9553000" />
       <workItem from="1670756451373" duration="14348000" />
       <workItem from="1670773571469" duration="2090000" />
-      <workItem from="1670784225482" duration="6058000" />
+      <workItem from="1670784225482" duration="6411000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1669182571165</created>
@@ -353,7 +349,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670786089454</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="OAuth2.0">
+      <created>1670793012686</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1670793012686</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Debug added default value">
+      <created>1670793188045</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1670793188045</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,7 +389,8 @@
     <MESSAGE value="Password update" />
     <MESSAGE value="Ports update" />
     <MESSAGE value="OAuth2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="OAuth2.0" />
+    <MESSAGE value="Debug added default value" />
+    <option name="LAST_COMMIT_MESSAGE" value="Debug added default value" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
