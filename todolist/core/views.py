@@ -3,7 +3,7 @@ from django.shortcuts import render
 from rest_framework import generics, status, permissions
 from rest_framework.response import Response
 
-from todolist.core.serializers import RegistrationSerializer, LoginSerializer, ProfileSerializer, \
+from .serializers import RegistrationSerializer, LoginSerializer, ProfileSerializer, \
     UpdatePasswordSerializer
 
 USER_MODEL = get_user_model()

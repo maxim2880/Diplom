@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.urls import path
 
-from todolist.core import views
+from . import views
 
 urlpatterns = [
     path('signup', views.RegistrationView.as_view(), name='signup'),
