@@ -2,7 +2,7 @@ version: "3.6"
 
 services:
   frontend:
-    image: sermalenk/skypro-front:lesson-35
+    image: sermalenk/skypro-front:lesson-34
     restart: always
     depends_on:
       - api
@@ -20,6 +20,7 @@ services:
     depends_on:
       - db
       - migrations
+
     ports:
       - 8000
   migrations:
