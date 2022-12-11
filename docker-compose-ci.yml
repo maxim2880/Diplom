@@ -7,7 +7,7 @@ services:
     depends_on:
       - api
     ports:
-      - 80:80
+      - "80:80"
   api:
     image: mmisyura/diplom:$GITHUB_REF_NAME-$GITHUB_RUN_ID
     restart: always
@@ -18,12 +18,10 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
       SECRET_KEY: ${SECRET_KEY}
     depends_on:
-      db:
-        condition: service_healthy
-      migrations:
-        condition: service_completed_successfully
+      - db
+      - migrations
     ports:
-      - "8000:8000"
+      - 8000
   migrations:
      image: mmisyura/diplom:$GITHUB_REF_NAME-$GITHUB_RUN_ID
      environment:
@@ -33,8 +31,7 @@ services:
        POSTGRES_DB: ${POSTGRES_DB}
        SECRET_KEY: ${SECRET_KEY}
      depends_on:
-       db:
-         condition: service_healthy
+       - db
      command: >
        sh -c "python3 manage.py migrate"
   db:
@@ -45,7 +42,7 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     restart: always
     ports:
-      - 5432:5432
+      - 5432
     volumes:
       - pg_data:/var/lib/postgresql/data
     healthcheck:
