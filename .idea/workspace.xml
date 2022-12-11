@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f7bd8bc-98c2-4baf-bdac-fcd0572e83d5" name="Changes" comment="OAuth2.0">
-      <change beforePath="$PROJECT_DIR$/docker-compose-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-ci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/todolist/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/todolist/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +141,7 @@
       <workItem from="1670739579594" duration="9553000" />
       <workItem from="1670756451373" duration="14348000" />
       <workItem from="1670773571469" duration="2090000" />
-      <workItem from="1670784225482" duration="1738000" />
+      <workItem from="1670784225482" duration="6058000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1669182571165</created>
@@ -337,7 +339,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670785800569</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="OAuth2.0">
+      <created>1670785974889</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1670785974889</updated>
+    </task>
+    <task id="LOCAL-00030" summary="OAuth2.0">
+      <created>1670786089454</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1670786089454</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
