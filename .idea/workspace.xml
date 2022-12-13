@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f7bd8bc-98c2-4baf-bdac-fcd0572e83d5" name="Changes" comment="Sharing board">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/goals/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/goals/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/goals/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/goals/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/goals/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/goals/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +154,7 @@
       <workItem from="1670836097123" duration="4676000" />
       <workItem from="1670844782895" duration="9556000" />
       <workItem from="1670905127955" duration="17384000" />
-      <workItem from="1670935627166" duration="10860000" />
+      <workItem from="1670935627166" duration="12639000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1669182571165</created>

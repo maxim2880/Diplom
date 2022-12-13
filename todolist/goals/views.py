@@ -50,14 +50,13 @@ class GoalCategoryView(RetrieveUpdateDestroyAPIView):
 
     def perform_destroy(self, instance):
         instance.is_deleted = True
-        #Goal.objects.filter(self.request)
+        goals = Goal.objects.all()
+        for goal in goals:
+            if goal.category_id == instance.id:
+                goal.status = 4
+                goal.save()
         instance.save()
         return instance
-
-# При удалении категории все цели переводятся в статус "Архив"
-#     def delete_category(self):
-#         self.status = self.Status.archived
-#         self.save()
 
 
 # Вьюхи для работы с целями
