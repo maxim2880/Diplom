@@ -2,11 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f7bd8bc-98c2-4baf-bdac-fcd0572e83d5" name="Changes" comment="Web interface with goals">
+      <change afterPath="$PROJECT_DIR$/todolist/goals/migrations/0003_board_goalcategory_board_boardparticipant.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todolist/goals/migrations/0004_create_new_objects.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todolist/goals/migrations/0005_alter_goalcategory_board.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todolist/goals/permissions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/goals/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/goals/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todolist/goals/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/goals/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todolist/goals/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/goals/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/goals/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/goals/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/goals/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/goals/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +157,8 @@
       <workItem from="1670784225482" duration="6740000" />
       <workItem from="1670836097123" duration="4676000" />
       <workItem from="1670844782895" duration="9556000" />
-      <workItem from="1670905127955" duration="11983000" />
+      <workItem from="1670905127955" duration="17384000" />
+      <workItem from="1670935627166" duration="8598000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1669182571165</created>
@@ -410,7 +419,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670913785393</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Web interface with goals">
+      <created>1670918011837</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1670918011837</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
