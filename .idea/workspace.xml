@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f7bd8bc-98c2-4baf-bdac-fcd0572e83d5" name="Changes" comment="Web interface with goals">
-      <change afterPath="$PROJECT_DIR$/todolist/goals/migrations/0003_board_goalcategory_board_boardparticipant.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todolist/goals/migrations/0004_create_new_objects.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todolist/goals/migrations/0005_alter_goalcategory_board.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todolist/goals/permissions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="5f7bd8bc-98c2-4baf-bdac-fcd0572e83d5" name="Changes" comment="Sharing board">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolist/goals/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/goals/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolist/goals/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/goals/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolist/goals/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/goals/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolist/goals/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/goals/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolist/goals/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/goals/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +21,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -158,7 +152,7 @@
       <workItem from="1670836097123" duration="4676000" />
       <workItem from="1670844782895" duration="9556000" />
       <workItem from="1670905127955" duration="17384000" />
-      <workItem from="1670935627166" duration="8598000" />
+      <workItem from="1670935627166" duration="10860000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1669182571165</created>
@@ -426,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670918011837</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Sharing board">
+      <created>1670947197668</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1670947197668</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -454,7 +455,8 @@
     <MESSAGE value="OAuth2.0" />
     <MESSAGE value="Debug added default value" />
     <MESSAGE value="Web interface with goals" />
-    <option name="LAST_COMMIT_MESSAGE" value="Web interface with goals" />
+    <MESSAGE value="Sharing board" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sharing board" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
