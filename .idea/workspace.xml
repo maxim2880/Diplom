@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f7bd8bc-98c2-4baf-bdac-fcd0572e83d5" name="Changes" comment="improvements HW_36">
-      <change afterPath="$PROJECT_DIR$/tests/simple_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todolist/bot/management/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todolist/bot/management/commands/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todolist/bot/management/commands/runbot.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todolist/bot/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todolist/bot/tg/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todolist/bot/tg/client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todolist/bot/tg/schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todolist/bot/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todolist/pytest.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8ea49f5e-c847-468e-b208-4e05a103012e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8ea49f5e-c847-468e-b208-4e05a103012e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8ea49f5e-c847-468e-b208-4e05a103012e/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8ea49f5e-c847-468e-b208-4e05a103012e/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolist/todolist/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/todolist/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolist/todolist/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/todolist/urls.py" afterDir="false" />
-    </list>
+    <list default="true" id="5f7bd8bc-98c2-4baf-bdac-fcd0572e83d5" name="Changes" comment="TgBot v.1" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -178,7 +159,7 @@
       <workItem from="1671617265719" duration="2443000" />
       <workItem from="1671637675442" duration="4477000" />
       <workItem from="1671670772666" duration="1030000" />
-      <workItem from="1671694683755" duration="6068000" />
+      <workItem from="1671694683755" duration="6372000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1669182571165</created>
@@ -460,7 +441,28 @@
       <option name="project" value="LOCAL" />
       <updated>1670953503355</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="TgBot v.1">
+      <created>1671702293716</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1671702293716</updated>
+    </task>
+    <task id="LOCAL-00042" summary="TgBot v.1">
+      <created>1671702399361</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1671702399361</updated>
+    </task>
+    <task id="LOCAL-00043" summary="TgBot v.1">
+      <created>1671702445217</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1671702445217</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,7 +492,8 @@
     <MESSAGE value="Web interface with goals" />
     <MESSAGE value="Sharing board" />
     <MESSAGE value="improvements HW_36" />
-    <option name="LAST_COMMIT_MESSAGE" value="improvements HW_36" />
+    <MESSAGE value="TgBot v.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="TgBot v.1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
