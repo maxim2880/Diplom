@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f7bd8bc-98c2-4baf-bdac-fcd0572e83d5" name="Changes" comment="TgBot v.1" />
+    <list default="true" id="5f7bd8bc-98c2-4baf-bdac-fcd0572e83d5" name="Changes" comment="TgBot v.1">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/bot/management/commands/runbot.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/bot/management/commands/runbot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/bot/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/bot/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -159,7 +163,7 @@
       <workItem from="1671617265719" duration="2443000" />
       <workItem from="1671637675442" duration="4477000" />
       <workItem from="1671670772666" duration="1030000" />
-      <workItem from="1671694683755" duration="7885000" />
+      <workItem from="1671694683755" duration="8608000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1669182571165</created>
@@ -490,7 +494,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671703849346</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="TgBot v.1">
+      <created>1671704142145</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1671704142145</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

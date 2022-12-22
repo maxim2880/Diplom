@@ -8,7 +8,7 @@ from todolist.settings import env
 
 class Command(BaseCommand):
     help = 'Runs telegram bot'
-    tg_client = TgClient(env.str('TG_BOT_API_TOKEN'))
+    tg_client = TgClient('5882510411:AAGR1016QqOZFk6Ekb2wbuxoticJ31BIztA')
 
     def handle_unverified_user(self, msg: Message, tg_user: TgUser):
         code = '123'
