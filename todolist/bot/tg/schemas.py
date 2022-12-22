@@ -56,7 +56,7 @@ class UpdateObj:
 @dataclass
 class GetUpdatesResponse:
     ok: bool
-    result: List[UpdateObj]  # todo
+    result: List[UpdateObj]
 
     class Meta:
         unknown = EXCLUDE
@@ -65,7 +65,7 @@ class GetUpdatesResponse:
 @dataclass
 class SendMessageResponse:
     ok: bool
-    result: Message  # todo
+    result: Message
 
     class Meta:
         unknown = EXCLUDE
