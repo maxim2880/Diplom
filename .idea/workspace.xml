@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f7bd8bc-98c2-4baf-bdac-fcd0572e83d5" name="Changes" comment="TgBot v.1">
-      <change afterPath="$PROJECT_DIR$/todolist/tests/test_goals/test_auth.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolist/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/core/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolist/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/tests/conftest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolist/tests/factories.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/tests/factories.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolist/tests/test_goals/test_goals.py" beforeDir="false" />
+    <list default="true" id="5f7bd8bc-98c2-4baf-bdac-fcd0572e83d5" name="Changes" comment="Diplom with test">
+      <change beforePath="$PROJECT_DIR$/docker-compose-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-ci.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,21 +168,7 @@
       <workItem from="1671946907192" duration="15386000" />
       <workItem from="1671987734674" duration="829000" />
       <workItem from="1671993473084" duration="486000" />
-      <workItem from="1672014925892" duration="4923000" />
-    </task>
-    <task id="LOCAL-00002" summary="1">
-      <created>1669182874045</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1669182874046</updated>
-    </task>
-    <task id="LOCAL-00003" summary="2">
-      <created>1669184413149</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1669184413149</updated>
+      <workItem from="1672014925892" duration="5228000" />
     </task>
     <task id="LOCAL-00004" summary="Add Core App">
       <created>1669186157271</created>
@@ -519,7 +499,21 @@
       <option name="project" value="LOCAL" />
       <updated>1672015371499</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Diplom with test">
+      <created>1672036177235</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1672036177235</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Diplom with test">
+      <created>1672036226314</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1672036226314</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -550,7 +544,8 @@
     <MESSAGE value="Sharing board" />
     <MESSAGE value="improvements HW_36" />
     <MESSAGE value="TgBot v.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="TgBot v.1" />
+    <MESSAGE value="Diplom with test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Diplom with test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
