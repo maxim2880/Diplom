@@ -1,46 +1,51 @@
-import pytest
+from datetime import datetime
+
+from django.utils import timezone
+
+import factory
+
+
 from pytest_factoryboy import register
-from rest_framework.test import APIClient
-from django.contrib.auth import get_user_model
-import factories
 
-USER_MODEL = get_user_model()
+from goals import models
 
-
-@pytest.fixture
-def auth_client():
-    client = APIClient()
-    client.force_authenticate(test_user)
-    return client
+pytest_plugins = "tests.fixtures"
 
 
-@pytest.fixture
-def test_user(db):
-    user = USER_MODEL.objects.create(
-        username='max',
-        password='Ttest1234',
-        email='max@mail.ru'
-    )
-    return user
+@register
+class BoardFactory(factory.django.DjangoModelFactory):
+    """board class"""
+
+    class Meta:
+        model = models.Board
+
+    title = 'test_board_title'
 
 
-@pytest.fixture
-def category(board, test_user):
-    return factories.GoalCategoryFactory.create(
-        board=board,
-        user=test_user,
-    )
+@register
+class CategoryFactory(factory.django.DjangoModelFactory):
+    """category class"""
+
+    class Meta:
+        model = models.GoalCategory
+
+    title = 'test_category_title'
 
 
-@pytest.fixture
-def board():
-    return factories.BoardFactory.create()
+@register
+class GoalFactory(factory.django.DjangoModelFactory):
+    """goal class"""
+
+    class Meta:
+        model = models.Goal
+
+    due_date = datetime.now(tz=timezone.utc)
+    description = 'some description'
 
 
-@pytest.fixture
-def board_participant(test_user, board):
-    participant = factories.BoardParticipantFactory.create(
-        board=board,
-        user=test_user,
-    )
-    return participant
+@register
+class CommentFactory(factory.django.DjangoModelFactory):
+    """comment factory"""
+
+    class Meta:
+        model = models.GoalComment
