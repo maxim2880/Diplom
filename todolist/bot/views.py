@@ -9,6 +9,7 @@ from todolist.settings import env
 
 
 class BotVerifyView(generics.UpdateAPIView):
+    """Представление для верификации бота"""
     model = TgUser
     permission_classes = [IsAuthenticated]
     http_method_names = ['patch']

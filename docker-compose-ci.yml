@@ -27,6 +27,17 @@ services:
         condition: service_completed_successfully
     ports:
       - 8000
+  bot:
+    image: mmisyura/diplom:$GITHUB_REF_NAME-$GITHUB_RUN_ID
+    restart: always
+    environment:
+    command: >
+      sh -c "python3 manage.py runbot"
+    depends_on:
+      db:
+        condition: service_healthy
+      migrations:
+        condition: service_completed_successfully
   migrations:
      image: mmisyura/diplom:$GITHUB_REF_NAME-$GITHUB_RUN_ID
      environment:

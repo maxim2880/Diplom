@@ -22,7 +22,11 @@ class GoalCategoryPermissions(permissions.BasePermission):
         if not request.user.is_authenticated:
             return False
         if request.method in permissions.SAFE_METHODS:
-            return BoardParticipant.objects.filter(user=request.user, board=category.board).exists()
+            return BoardParticipant.objects.filter(
+                user=request.user,
+                board=category.board,
+            ).exists()
+
         return BoardParticipant.objects.filter(
             user=request.user,
             board=category.board,
@@ -58,7 +62,6 @@ class CommentPermissions(permissions.BasePermission):
         if request.method in permissions.SAFE_METHODS:
             return True
         if request.method == 'POST':
-
             return BoardParticipant.objects.filter(
                 user=request.user,
                 board=comment.goal.category.board,

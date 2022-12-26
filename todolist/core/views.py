@@ -37,6 +37,7 @@ class ProfileView(generics.RetrieveUpdateDestroyAPIView):
         logout(request)
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+
 class UpdatePasswordView(generics.UpdateAPIView):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = UpdatePasswordSerializer
