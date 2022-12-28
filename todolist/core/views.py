@@ -10,11 +10,13 @@ USER_MODEL = get_user_model()
 
 
 class RegistrationView(generics.CreateAPIView):
+    """registration user"""
     model = USER_MODEL
     serializer_class = RegistrationSerializer
 
 
 class LoginView(generics.GenericAPIView):
+    """user login"""
     serializer_class = LoginSerializer
 
     def post(self, request, *args, **kwargs):
@@ -26,6 +28,7 @@ class LoginView(generics.GenericAPIView):
 
 
 class ProfileView(generics.RetrieveUpdateDestroyAPIView):
+    """user profile"""
     serializer_class = ProfileSerializer
     queryset = USER_MODEL.objects.all()
     permission_classes = [permissions.IsAuthenticated]

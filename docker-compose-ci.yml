@@ -32,6 +32,7 @@ services:
     restart: always
     environment:
       TG_BOT_API_TOKEN: ${TG_BOT_API_TOKEN}
+      SECRET_KEY: ${SECRET_KEY}
     command: >
       sh -c "python3 manage.py runbot"
     depends_on:

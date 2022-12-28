@@ -14,7 +14,7 @@ def test_category_crud_owner(client, get_token, board_factory):
 
     board = board_factory()
     board_participant = BoardParticipant.objects.create(user=current_user, board=board,
-                                                        role=BoardParticipant.Role.OWNER)  # noqa F841
+                                                        role=BoardParticipant.Role.owner)  # noqa F841
 
     data = {'title': 'test_category_title', 'user': current_user, 'board': board.id}
 
@@ -50,7 +50,7 @@ def test_goal_crud_owner(client, get_token, board_factory, category_factory):
 
     board = board_factory()
     board_participant = BoardParticipant.objects.create(user=current_user, board=board,
-                                                        role=BoardParticipant.Role.OWNER)  # noqa F841
+                                                        role=BoardParticipant.Role.owner)  # noqa F841
     category = category_factory(user=current_user, board=board)
 
     data = {'title': 'test_goal_title',
@@ -91,7 +91,7 @@ def test_comment_crud_owner(client, get_token, board_factory, category_factory, 
 
     board = board_factory()
     board_participant = BoardParticipant.objects.create(user=current_user, board=board,
-                                                        role=BoardParticipant.Role.OWNER)  # noqa F841
+                                                        role=BoardParticipant.Role.owner)  # noqa F841
     category = category_factory(user=current_user, board=board)
     goal = goal_factory(user=current_user, category=category)
 

@@ -2,7 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f7bd8bc-98c2-4baf-bdac-fcd0572e83d5" name="Changes" comment="Diplom with test">
-      <change beforePath="$PROJECT_DIR$/docker-compose-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-ci.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todolist/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todolist/tests/test_auth/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todolist/tests/test_auth/test_auth.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todolist/tests/test_create/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todolist/tests/test_create/test_create_category.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todolist/tests/test_role/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8ea49f5e-c847-468e-b208-4e05a103012e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8ea49f5e-c847-468e-b208-4e05a103012e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8ea49f5e-c847-468e-b208-4e05a103012e/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8ea49f5e-c847-468e-b208-4e05a103012e/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/core/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/goals/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/goals/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/fixtures.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/tests/fixtures.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/test_goals/test_auth.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/test_goals/test_create_board.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/tests/test_create/test_create_board.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/test_goals/test_create_category.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/test_goals/test_create_comment.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/tests/test_create/test_create_comment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/test_goals/test_create_goal.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/tests/test_create/test_create_goal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/test_goals/test_noone.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/tests/test_role/test_noone.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/test_goals/test_owner.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/tests/test_role/test_owner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/test_goals/test_reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/tests/test_role/test_reader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/test_goals/test_writer.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/tests/test_role/test_writer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/todolist/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/todolist/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,14 +69,14 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\admin\PycharmProjects\todolist\todolist\tests\test_goals" />
-      <recent name="C:\Users\admin\PycharmProjects\todolist\todolist" />
-      <recent name="C:\Users\admin\PycharmProjects\todolist\todolist\bot" />
-      <recent name="C:\Users\admin\PycharmProjects\todolist\.github\workflows" />
-      <recent name="C:\Users\admin\PycharmProjects\todolist" />
+      <recent name="C:\Users\admin\PycharmProjects\todolist\todolist\tests" />
+      <recent name="C:\Users\admin\PycharmProjects\todolist\todolist\tests\test_role" />
+      <recent name="C:\Users\admin\PycharmProjects\todolist\todolist\tests\test_create" />
+      <recent name="C:\Users\admin\PycharmProjects\todolist\todolist\tests\test_auth" />
+      <recent name="C:\Users\admin\PycharmProjects\todolist\todolist\tests\utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.manage">
+  <component name="RunManager" selected="Python tests.Python tests for tests.test_auth.test_auth.test_auth_goal_list">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="todolist" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -124,13 +145,30 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for tests.test_auth.test_auth.test_auth_goal_list" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="todolist" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/todolist/tests/test_goals" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.test_auth.test_auth.test_auth_goal_list&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Django Server.diplom" />
       <item itemvalue="Python.main" />
       <item itemvalue="Python.manage" />
+      <item itemvalue="Python tests.Python tests for tests.test_auth.test_auth.test_auth_goal_list" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for tests.test_auth.test_auth.test_auth_goal_list" />
         <item itemvalue="Python.manage" />
       </list>
     </recent_temporary>
@@ -168,14 +206,7 @@
       <workItem from="1671946907192" duration="15386000" />
       <workItem from="1671987734674" duration="829000" />
       <workItem from="1671993473084" duration="486000" />
-      <workItem from="1672014925892" duration="5228000" />
-    </task>
-    <task id="LOCAL-00004" summary="Add Core App">
-      <created>1669186157271</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1669186157271</updated>
+      <workItem from="1672014925892" duration="15201000" />
     </task>
     <task id="LOCAL-00005" summary="HW_33">
       <created>1669203849721</created>
@@ -513,7 +544,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672036226314</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Diplom with test">
+      <created>1672036440394</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1672036440394</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,6 +597,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/manage_py$.coverage" NAME=" Coverage Results" MODIFIED="1672049684468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/todolist/tests/test_goals" />
     <SUITE FILE_PATH="coverage/manage_py$manage.coverage" NAME="manage Coverage Results" MODIFIED="1671639686304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/todolist" />
     <SUITE FILE_PATH="coverage/todolist$manage.coverage" NAME="manage Coverage Results" MODIFIED="1670748747936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/todolist" />
   </component>
