@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f7bd8bc-98c2-4baf-bdac-fcd0572e83d5" name="Changes" comment="Diplom with test">
-      <change beforePath="$PROJECT_DIR$/docker-compose-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-ci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/bot/management/commands/runbot.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/bot/management/commands/runbot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/bot/tg/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/bot/tg/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/bot/tg/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/bot/tg/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/bot/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/bot/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/todolist/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/todolist/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,14 +190,7 @@
       <workItem from="1671946907192" duration="15386000" />
       <workItem from="1671987734674" duration="829000" />
       <workItem from="1671993473084" duration="486000" />
-      <workItem from="1672014925892" duration="15564000" />
-    </task>
-    <task id="LOCAL-00006" summary="HW_33">
-      <created>1669204082226</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1669204082227</updated>
+      <workItem from="1672014925892" duration="19262000" />
     </task>
     <task id="LOCAL-00007" summary="HW_33">
       <created>1669204207384</created>
@@ -530,7 +528,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672211089599</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Diplom with test">
+      <created>1672211422961</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1672211422961</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

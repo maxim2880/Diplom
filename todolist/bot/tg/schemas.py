@@ -1,9 +1,7 @@
-from __future__ import annotations
-
+from dataclasses import field, dataclass
 from typing import List, Optional
-from dataclasses import field
+
 import marshmallow_dataclass
-from marshmallow_dataclass import dataclass
 from marshmallow import EXCLUDE
 
 
@@ -13,20 +11,21 @@ class MessageFrom:
     is_bot: bool
     first_name: Optional[str]
     last_name: Optional[str]
-    username: str
+    username: Optional[str]
 
     class Meta:
         unknown = EXCLUDE
 
 
 @dataclass
-class MessageChat:
+# class MessageChat:
+class Chat:
     id: int
     first_name: Optional[str]
     last_name: Optional[str]
-    username: str
-    type: str
     title: Optional[str]
+    type: str
+    username: Optional[str]
 
     class Meta:
         unknown = EXCLUDE
@@ -35,8 +34,8 @@ class MessageChat:
 @dataclass
 class Message:
     message_id: int
-    msg_from: MessageFrom = field(metadata={"data_key": "from"})
-    chat: MessageChat
+    msg_from: MessageFrom = field(metadata={'data_key': 'from'})
+    chat: Chat
     date: int
     text: Optional[str]
 
@@ -72,4 +71,4 @@ class SendMessageResponse:
 
 
 GET_UPDATES_SCHEMA = marshmallow_dataclass.class_schema(GetUpdatesResponse)()
-SEND_MESSAGE_RESPONSE_SCHEMA = marshmallow_dataclass.class_schema(SendMessageResponse)()
+SEND_MESSAGE_RESPONSE = marshmallow_dataclass.class_schema(SendMessageResponse)()
