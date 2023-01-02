@@ -55,7 +55,7 @@ class UpdateObj:
 @dataclass
 class GetUpdatesResponse:
     ok: bool
-    result: List[UpdateObj]
+    result: list[UpdateObj]
 
     class Meta:
         unknown = EXCLUDE
