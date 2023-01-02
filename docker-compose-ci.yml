@@ -1,4 +1,3 @@
-version: "3.9"
 
 services:
   frontend:
@@ -8,6 +7,7 @@ services:
       - api
     ports:
       - "80:80"
+
   api:
     image: mmisyura/diplom:$GITHUB_REF_NAME-$GITHUB_RUN_ID
     restart: always
@@ -20,66 +20,64 @@ services:
       SECRET_KEY: ${SECRET_KEY}
       SOCIAL_AUTH_VK_OAUTH2_KEY: ${SOCIAL_AUTH_VK_OAUTH2_KEY}
       SOCIAL_AUTH_VK_OAUTH2_SECRET: ${SOCIAL_AUTH_VK_OAUTH2_SECRET}
+      TG_BOT_API_TOKEN: ${TG_BOT_API_TOKEN}
     depends_on:
       db:
         condition: service_healthy
       migrations:
         condition: service_completed_successfully
-    ports:
-      - 8000
+
   bot:
     image: mmisyura/diplom:$GITHUB_REF_NAME-$GITHUB_RUN_ID
-    restart: always
     environment:
-      TG_BOT_API_TOKEN: ${TG_BOT_API_TOKEN}
-      SECRET_KEY: ${SECRET_KEY}
-      DEBUG: ${DEBUG}
       POSTGRES_HOST: ${POSTGRES_HOST}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
+      SECRET_KEY: ${SECRET_KEY}
       SOCIAL_AUTH_VK_OAUTH2_KEY: ${SOCIAL_AUTH_VK_OAUTH2_KEY}
       SOCIAL_AUTH_VK_OAUTH2_SECRET: ${SOCIAL_AUTH_VK_OAUTH2_SECRET}
-    command: >
-      sh -c "python3 manage.py runbot"
+      TG_BOT_API_TOKEN: ${TG_BOT_API_TOKEN}
     depends_on:
       db:
         condition: service_healthy
       migrations:
         condition: service_completed_successfully
+    command: >
+      bash -c 'python3 manage.py runbot'
+    restart: always
+
   migrations:
-     image: mmisyura/diplom:$GITHUB_REF_NAME-$GITHUB_RUN_ID
-     environment:
-       POSTGRES_HOST: ${POSTGRES_HOST}
-       POSTGRES_USER: ${POSTGRES_USER}
-       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-       POSTGRES_DB: ${POSTGRES_DB}
-       SECRET_KEY: ${SECRET_KEY}
-       SOCIAL_AUTH_VK_OAUTH2_KEY: ${SOCIAL_AUTH_VK_OAUTH2_KEY}
-       SOCIAL_AUTH_VK_OAUTH2_SECRET: ${SOCIAL_AUTH_VK_OAUTH2_SECRET}
-     depends_on:
-       db:
+    image: mmisyura/diplom:$GITHUB_REF_NAME-$GITHUB_RUN_ID
+    environment:
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      SECRET_KEY: ${SECRET_KEY}
+      SOCIAL_AUTH_VK_OAUTH2_KEY: ${SOCIAL_AUTH_VK_OAUTH2_KEY}
+      SOCIAL_AUTH_VK_OAUTH2_SECRET: ${SOCIAL_AUTH_VK_OAUTH2_SECRET}
+      TG_BOT_API_TOKEN: ${TG_BOT_API_TOKEN}
+    depends_on:
+      db:
         condition: service_healthy
-     command: >
-       sh -c "python3 manage.py migrate"
+    command: >
+      sh -c "python ./manage.py migrate"
+
   db:
-    image: postgres:latest
+    image: postgres:15-alpine
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
     restart: always
-    ports:
-      - 5432
     volumes:
       - pg_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d postgres"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
       interval: 5s
       timeout: 5s
       retries: 5
-
-
 
 volumes:
   pg_data:

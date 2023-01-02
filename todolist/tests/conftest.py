@@ -1,51 +1,57 @@
-from datetime import datetime
+import pytest
+from django.contrib.auth import get_user_model
+from rest_framework.test import APIClient
 
-from django.utils import timezone
+from core.models import User
+from goals.models import Board, BoardParticipant, GoalCategory, Goal, GoalComment
+from tests.factories import (
+    BoardFactory,
+    BoardParticipantFactory,
+    CategoryFactory,
+    GoalFactory,
+    CommentFactory,
+)
 
-import factory
-
-
-from pytest_factoryboy import register
-
-from goals import models
-
-pytest_plugins = "tests.fixtures"
-
-
-@register
-class BoardFactory(factory.django.DjangoModelFactory):
-    """board class"""
-
-    class Meta:
-        model = models.Board
-
-    title = 'test_board_title'
+USER_MODEL = get_user_model()
 
 
-@register
-class CategoryFactory(factory.django.DjangoModelFactory):
-    """category class"""
-
-    class Meta:
-        model = models.GoalCategory
-
-    title = 'test_category_title'
+@pytest.fixture
+def auth_user(add_user: User) -> APIClient:
+    client = APIClient()
+    client.login(username='john', password='test1234')
+    return client
 
 
-@register
-class GoalFactory(factory.django.DjangoModelFactory):
-    """goal class"""
+@pytest.fixture
+def add_user(db) -> User:
+    user = USER_MODEL.objects.create_user(
+        username='john',
+        email='john@gmail.com',
+        password='test1234'
+    )
+    return user
 
-    class Meta:
-        model = models.Goal
 
-    due_date = datetime.now(tz=timezone.utc)
-    description = 'some description'
+@pytest.fixture
+def board() -> Board:
+    return BoardFactory.create()
 
 
-@register
-class CommentFactory(factory.django.DjangoModelFactory):
-    """comment factory"""
+@pytest.fixture
+def board_participant(add_user: User, board: Board) -> BoardParticipant:
+    return BoardParticipantFactory.create(user=add_user, board=board)
 
-    class Meta:
-        model = models.GoalComment
+
+@pytest.fixture
+def category(board: Board, add_user: User, board_participant: BoardParticipant) -> GoalCategory:
+    return CategoryFactory.create(board=board, user=add_user)
+
+
+@pytest.fixture
+def goal(category: GoalCategory, add_user: User) -> Goal:
+    return GoalFactory.create(user=add_user, category=category)
+
+
+@pytest.fixture
+def comment(goal: Goal, add_user: User) -> GoalComment:
+    return CommentFactory.create(user=add_user, goal=goal)

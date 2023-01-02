@@ -1,79 +1,33 @@
 from django.db import models
-from django.utils import timezone
 
 from core.models import User
 
 
-class DatesModelMixin(models.Model):
-    class Meta:
-        abstract = True  # Помечаем класс как абстрактный – для него не будет таблички в БД
-
-    created = models.DateTimeField(verbose_name="Дата создания")
-    updated = models.DateTimeField(verbose_name="Дата последнего обновления")
-
-    def save(self, *args, **kwargs):
-        if not self.id:  # Когда модель только создается – у нее нет id
-            self.created = timezone.now()
-        self.updated = timezone.now()  # Каждый раз, когда вызывается save, проставляем свежую дату обновления
-        return super().save(*args, **kwargs)
-
-
-# Создание модели доска
-class Board(DatesModelMixin):
+class Board(models.Model):
     class Meta:
         verbose_name = "Доска"
         verbose_name_plural = "Доски"
 
     title = models.CharField(verbose_name="Название", max_length=255)
     is_deleted = models.BooleanField(verbose_name="Удалена", default=False)
+    created = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+    updated = models.DateTimeField(auto_now=True, verbose_name="Дата последнего обновления")
 
 
-# Моедль для участника
-class BoardParticipant(DatesModelMixin):
-    class Meta:
-        unique_together = ("board", "user")
-        verbose_name = "Участник"
-        verbose_name_plural = "Участники"
-
-    class Role(models.IntegerChoices):
-        owner = 1, "Владелец"
-        writer = 2, "Редактор"
-        reader = 3, "Читатель"
-
-    board = models.ForeignKey(
-        Board,
-        verbose_name="Доска",
-        on_delete=models.PROTECT,
-        related_name="participants",
-    )
-    user = models.ForeignKey(
-        User,
-        verbose_name="Пользователь",
-        on_delete=models.PROTECT,
-        related_name="participants",
-    )
-    role = models.PositiveSmallIntegerField(
-        verbose_name="Роль", choices=Role.choices, default=Role.owner
-    )
-
-
-# Создание модели для категорий целей
-class GoalCategory(DatesModelMixin):
+class GoalCategory(models.Model):
     class Meta:
         verbose_name = "Категория"
         verbose_name_plural = "Категории"
 
-    board = models.ForeignKey(
-        Board, verbose_name="Доска", on_delete=models.PROTECT, related_name="categories"
-    )
-
     title = models.CharField(verbose_name="Название", max_length=255)
-    user = models.ForeignKey(User, verbose_name="Автор", on_delete=models.PROTECT)
+    user = models.ForeignKey("core.User", verbose_name="Автор", on_delete=models.PROTECT)
     is_deleted = models.BooleanField(verbose_name="Удалена", default=False)
+    created = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+    updated = models.DateTimeField(auto_now=True, verbose_name="Дата последнего обновления")
+    board = models.ForeignKey(Board, verbose_name="Доска", on_delete=models.PROTECT, related_name="categories")
 
 
-# Создание модели для целей
-class Goal(DatesModelMixin):
+class Goal(models.Model):
     class Status(models.IntegerChoices):
         to_do = 1, "К выполнению"
         in_progress = 2, "В процессе"
@@ -87,34 +41,43 @@ class Goal(DatesModelMixin):
         critical = 4, "Критический"
 
     title = models.CharField(verbose_name="Название", max_length=255)
-    user = models.ForeignKey(User, verbose_name="Автор", on_delete=models.PROTECT)
-    description = models.TextField(verbose_name='Описание', blank=True)
-    status = models.PositiveIntegerField(
-        verbose_name='Статус', choices=Status.choices, default=Status.to_do
-    )
-    priority = models.PositiveSmallIntegerField(
-        verbose_name='Приоритет', choices=Priority.choices, default=Priority.medium
-    )
-    due_date = models.DateField(verbose_name='Дата выполнения', blank=True)
-    category = models.ForeignKey(GoalCategory, verbose_name='Категория', related_name='goals', on_delete=models.CASCADE)
+    description = models.TextField(verbose_name="Описание", null=True, blank=True)
+    status = models.PositiveSmallIntegerField(verbose_name="Статус", choices=Status.choices, default=Status.to_do)
+    priority = models.PositiveSmallIntegerField(verbose_name="Приоритет", choices=Priority.choices,
+                                                default=Priority.medium)
+    due_date = models.DateField(verbose_name="Дата выполнения", null=True, blank=True)
+    user = models.ForeignKey("core.User", verbose_name="Автор", on_delete=models.PROTECT)
+    category = models.ForeignKey(GoalCategory, verbose_name="Категория", related_name="goals", on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+    updated = models.DateTimeField(auto_now=True, verbose_name="Дата последнего обновления")
 
 
-# Создание модели для комментариев к цели
-class GoalComment(DatesModelMixin):
+class GoalComment(models.Model):
     class Meta:
-        verbose_name = 'Комментарий'
-        verbose_name_plural = 'Комментарии'
+        verbose_name = "Комментарий"
+        verbose_name_plural = "Комментарии"
 
-    text = models.TextField(verbose_name='Текст')
-    goal = models.ForeignKey(
-        Goal,
-        verbose_name='Цель',
-        on_delete=models.PROTECT,
-        related_name='comments',
-    )
-    user = models.ForeignKey(
-        User,
-        verbose_name='Пользователь',
-        on_delete=models.PROTECT,
-        related_name='comments',
-    )
+    text = models.TextField(verbose_name="Текст")
+    goal = models.ForeignKey(Goal, verbose_name="Цель", on_delete=models.PROTECT, related_name="comments")
+    user = models.ForeignKey("core.User", verbose_name="Пользователь", on_delete=models.PROTECT,
+                             related_name="comments")
+    created = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+    updated = models.DateTimeField(auto_now=True, verbose_name="Дата последнего обновления")
+
+
+class BoardParticipant(models.Model):
+    class Meta:
+        unique_together = ("board", "user")
+        verbose_name = "Участник"
+        verbose_name_plural = "Участники"
+
+    class Role(models.IntegerChoices):
+        owner = 1, "Владелец"
+        writer = 2, "Редактор"
+        reader = 3, "Читатель"
+
+    board = models.ForeignKey(Board, verbose_name="Доска", on_delete=models.PROTECT, related_name="participants")
+    user = models.ForeignKey(User, verbose_name="Пользователь", on_delete=models.PROTECT, related_name="participants")
+    role = models.PositiveSmallIntegerField(verbose_name="Роль", choices=Role.choices, default=Role.owner)
+    created = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+    updated = models.DateTimeField(auto_now=True, verbose_name="Дата последнего обновления")

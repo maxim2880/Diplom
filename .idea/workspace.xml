@@ -2,11 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f7bd8bc-98c2-4baf-bdac-fcd0572e83d5" name="Changes" comment="Diplom with test">
+      <change afterPath="$PROJECT_DIR$/todolist/goals/migrations/0006_alter_goal_description_alter_goal_due_date.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todolist/tests/core_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todolist/tests/goals_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todolist/tests/url_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-ci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todolist/bot/management/commands/runbot.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/bot/management/commands/runbot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/bot/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/bot/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todolist/bot/tg/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/bot/tg/client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todolist/bot/tg/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/bot/tg/schemas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todolist/bot/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/bot/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/core/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/core/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/core/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/core/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/core/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/core/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/goals/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/goals/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/goals/permissions.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/goals/permissions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/goals/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/goals/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/goals/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/goals/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/goals/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/goals/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/pytest.ini" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/pytest.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/tests/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/factories.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/tests/factories.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/fixtures.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/test_auth/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/tests/board_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/test_auth/test_auth.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/test_create/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/tests/category_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/test_create/test_create_board.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/test_create/test_create_category.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/test_create/test_create_comment.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/test_create/test_create_goal.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/test_role/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/tests/comment_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/test_role/test_noone.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/test_role/test_owner.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/test_role/test_reader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/tests/test_role/test_writer.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/todolist/todolist/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/todolist/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +57,9 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/master" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -41,16 +78,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/admin/PycharmProjects/Diplom_mmg"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\admin\PycharmProjects\todolist\todolist\tests" />
@@ -60,7 +98,7 @@
       <recent name="C:\Users\admin\PycharmProjects\todolist\todolist\tests\utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for tests.test_auth.test_auth.test_auth_goal_list">
+  <component name="RunManager" selected="Django Server.diplom">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="todolist" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -190,14 +228,8 @@
       <workItem from="1671946907192" duration="15386000" />
       <workItem from="1671987734674" duration="829000" />
       <workItem from="1671993473084" duration="486000" />
-      <workItem from="1672014925892" duration="19572000" />
-    </task>
-    <task id="LOCAL-00008" summary="HW_33">
-      <created>1669652848915</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1669652848915</updated>
+      <workItem from="1672014925892" duration="21974000" />
+      <workItem from="1672300218254" duration="7747000" />
     </task>
     <task id="LOCAL-00009" summary="HW_33">
       <created>1669653051927</created>
@@ -535,7 +567,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672297728679</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Diplom with test">
+      <created>1672297807511</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1672297807511</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,7 +585,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Final" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

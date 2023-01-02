@@ -46,7 +46,7 @@ class Message:
 @dataclass
 class UpdateObj:
     update_id: int
-    message: Message
+    message: Optional[Message]
 
     class Meta:
         unknown = EXCLUDE

@@ -19,7 +19,9 @@ class Command(BaseCommand):
         self.offset = 0
 
     def handle(self, *args, **kwargs):
-
+        """
+        Запуск бота
+        """
         while True:
             response = self.tg_client.get_updates(offset=self.offset)
             for item in response.result:
@@ -38,6 +40,11 @@ class Command(BaseCommand):
                                                                     'Для создания цели введите: /create.')
 
     def check_user(self, message):
+        """
+            Проверка, что пользователь есть в базе данных. Если пользователя нет в базе, то создание записи в TgUser и
+            ожидание подтверждение верификационного кода на сайте.
+            Если TgUser найден, но не закреплен за User, то создаем другой код верификации и просим его подтвердить его.
+        """
         tg_user, created = TgUser.objects.get_or_create(tg_chat_id=message.chat.id, tg_user_id=message.msg_from.id)
 
         if created or not tg_user.user:
@@ -54,18 +61,24 @@ class Command(BaseCommand):
         return tg_user
 
     def get_goals(self, tg_user: TgUser):
+        """
+            Отправка всех целей пользователя в telegram.
+            Если целей у пользователя нет, то отправить сообщение, что целей нет.
+        """
         goals = Goal.objects.filter(user=tg_user.user, status__in=[1, 2, 3])
 
         if goals.count() > 0:
             [self.tg_client.send_message(tg_user.tg_chat_id,
                                          f'Название: {goal.title},\n'
-                                         # f'Категория {goal.category},\n'
-                                         # f'Статус {goal.get_status_display()},\n'
                                          f'Дедлайн: {goal.due_date if goal.due_date else "Нет"} \n') for goal in goals]
         else:
             self.tg_client.send_message(tg_user.tg_chat_id, 'Нет целей!')
 
     def choice_category(self, tg_user):
+        """
+        Метод выдает все категории пользователя в telegram и просит выбрать из этого
+        списка категорию в которой будет создана новая цель.
+        """
         categories = GoalCategory.objects.filter(board__participants__user=tg_user.user, is_deleted=False)
         self.tg_client.send_message(tg_user.tg_chat_id, 'Выберите категорию:')
         [self.tg_client.send_message(tg_user.tg_chat_id, category.title) for category in categories]
@@ -88,6 +101,9 @@ class Command(BaseCommand):
                     self.tg_client.send_message(tg_user.tg_chat_id, 'Категория не существует')
 
     def create_goal(self, tg_user, category):
+        """
+            Метод создания новой цели в выбранной категории
+        """
         self.tg_client.send_message(tg_user.tg_chat_id, 'Укажите название цели. \n'
                                                         'Для отмены введите: /cancel')
 
