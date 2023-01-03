@@ -9,8 +9,10 @@ from marshmallow import Schema, EXCLUDE
 class MessageFrom:
     id: int
     first_name: str
-    last_name: Optional[str]
-    username: str
+    last_name: Optional[str] = None
+    username: Optional[str] = None
+    is_bot: Optional[bool] = None
+    language_code: Optional[str] = None
 
     class Meta:
         unknown = EXCLUDE
@@ -21,9 +23,9 @@ class Chat:
     id: int
     type: str
     first_name: Optional[str] = None
-    last_name: Optional[str] = None
+    #last_name: Optional[str] = None
     username: Optional[str] = None
-    title: Optional[str] = None
+    #title: Optional[str] = None
 
     class Meta:
         unknown = EXCLUDE
@@ -43,7 +45,7 @@ class Message:
 @dataclass
 class UpdateObj:
     update_id: int
-    message: Message
+    message: Optional[Message] = None
 
     class Meta:
         unknown = EXCLUDE

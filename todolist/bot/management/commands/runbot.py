@@ -60,4 +60,5 @@ class Command(BaseCommand):
             res = self.tg_client.get_updates(offset=offset)
             for item in res.result:
                 offset = item.update_id + 1
+                print(item.message)
                 self.handle_message(item.message)
