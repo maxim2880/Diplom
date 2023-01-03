@@ -1,31 +1,29 @@
-from dataclasses import field, dataclass
-from typing import List, Optional
+from dataclasses import field
+from typing import ClassVar, Type, List, Optional
 
-import marshmallow_dataclass
-from marshmallow import EXCLUDE
+from marshmallow_dataclass import dataclass
+from marshmallow import Schema, EXCLUDE
 
 
 @dataclass
 class MessageFrom:
     id: int
-    is_bot: bool
-    first_name: Optional[str]
+    first_name: str
     last_name: Optional[str]
-    username: Optional[str]
+    username: str
 
     class Meta:
         unknown = EXCLUDE
 
 
 @dataclass
-# class MessageChat:
 class Chat:
     id: int
-    first_name: Optional[str]
-    last_name: Optional[str]
-    title: Optional[str]
     type: str
-    username: Optional[str]
+    first_name: Optional[str] = None
+    last_name: Optional[str] = None
+    username: Optional[str] = None
+    title: Optional[str] = None
 
     class Meta:
         unknown = EXCLUDE
@@ -34,10 +32,9 @@ class Chat:
 @dataclass
 class Message:
     message_id: int
-    msg_from: MessageFrom = field(metadata={'data_key': 'from'})
+    from_: MessageFrom = field(metadata={"data_key": "from"})
     chat: Chat
-    date: int
-    text: Optional[str]
+    text: Optional[str] = None
 
     class Meta:
         unknown = EXCLUDE
@@ -46,7 +43,7 @@ class Message:
 @dataclass
 class UpdateObj:
     update_id: int
-    message: Optional[Message]
+    message: Message
 
     class Meta:
         unknown = EXCLUDE
@@ -57,6 +54,8 @@ class GetUpdatesResponse:
     ok: bool
     result: List[UpdateObj]
 
+    Schema: ClassVar[Type[Schema]] = Schema
+
     class Meta:
         unknown = EXCLUDE
 
@@ -66,9 +65,7 @@ class SendMessageResponse:
     ok: bool
     result: Message
 
+    Schema: ClassVar[Type[Schema]] = Schema
+
     class Meta:
         unknown = EXCLUDE
-
-
-GET_UPDATES_SCHEMA = marshmallow_dataclass.class_schema(GetUpdatesResponse)()
-SEND_MESSAGE_RESPONSE = marshmallow_dataclass.class_schema(SendMessageResponse)()

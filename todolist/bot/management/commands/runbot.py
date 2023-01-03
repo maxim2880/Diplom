@@ -1,119 +1,63 @@
-from typing import Optional
-
 from django.conf import settings
 from django.core.management import BaseCommand
-from django.db import IntegrityError
 
 from bot.models import TgUser
 from bot.tg.client import TgClient
-from goals.models import GoalCategory
+from bot.tg.schemas import Message
 from goals.models import Goal
 
 
 class Command(BaseCommand):
-    help = 'Run telegram bot'
+    help = "run bot"
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.tg_client = TgClient(settings.TG_BOT_API_TOKEN)
-        self.offset = 0
+
+    def handle_user_without_verification(self, msg: Message, tg_user: TgUser):
+        tg_user.generate_verification_code()
+        tg_user.save(update_fields=["verification_code"])
+        self.tg_client.send_message(
+            msg.chat.id, f"[verification code] {tg_user.verification_code}"
+        )
+
+    def fetch_tasks(self, msg: Message, tg_user: TgUser):
+        gls = Goal.objects.filter(user=tg_user.user)
+        if gls.count() > 0:
+            resp_msg = [f"#{item.id} {item.title}" for item in gls]
+            self.tg_client.send_message(msg.chat.id, "\n".join(resp_msg))
+        else:
+            self.tg_client.send_message(msg.chat.id, "[goals list is empty]")
+
+    def handle_verified_user(self, msg: Message, tg_user: TgUser):
+        if not msg.text:
+            return
+        if "/goals" in msg.text:
+            self.fetch_tasks(msg, tg_user)
+        else:
+            self.tg_client.send_message(msg.chat.id, "[unknown command]")
+
+    def handle_message(self, msg: Message):
+        tg_user, created = TgUser.objects.get_or_create(
+            tg_user_id=msg.from_.id,
+            defaults={
+                "tg_chat_id": msg.chat.id,
+                "username": msg.from_.username,
+            },
+        )
+        if created:
+            self.tg_client.send_message(msg.chat.id, "[greeting]")
+
+        if tg_user.user:
+            self.handle_verified_user(msg, tg_user)
+        else:
+            self.handle_user_without_verification(msg, tg_user)
 
     def handle(self, *args, **kwargs):
-        """
-        Запуск бота
-        """
+        offset = 0
+
         while True:
-            response = self.tg_client.get_updates(offset=self.offset)
-            for item in response.result:
-                self.offset = item.update_id + 1
-                tg_user: Optional[TgUser] = self.check_user(item.message)
-
-                if not tg_user:
-                    continue
-
-                if item.message.text == '/goals':
-                    self.get_goals(tg_user)
-                elif item.message.text == '/create':
-                    self.choice_category(tg_user)
-                else:
-                    self.tg_client.send_message(tg_user.tg_chat_id, 'Для просмотра списка целей введите: /goals.\n'
-                                                                    'Для создания цели введите: /create.')
-
-    def check_user(self, message):
-        """
-            Проверка, что пользователь есть в базе данных. Если пользователя нет в базе, то создание записи в TgUser и
-            ожидание подтверждение верификационного кода на сайте.
-            Если TgUser найден, но не закреплен за User, то создаем другой код верификации и просим его подтвердить его.
-        """
-        tg_user, created = TgUser.objects.get_or_create(tg_chat_id=message.chat.id, tg_user_id=message.msg_from.id)
-
-        if created or not tg_user.user:
-
-            try:
-                tg_user.generate_verification_code()
-            except IntegrityError as e:
-                tg_user.generate_verification_code()
-
-            self.tg_client.send_message(tg_user.tg_chat_id,
-                                        f'Для подтверждения аккаунта введите код в приложении: '
-                                        f'{tg_user.verification_code}')
-            return None
-        return tg_user
-
-    def get_goals(self, tg_user: TgUser):
-        """
-            Отправка всех целей пользователя в telegram.
-            Если целей у пользователя нет, то отправить сообщение, что целей нет.
-        """
-        goals = Goal.objects.filter(user=tg_user.user, status__in=[1, 2, 3])
-
-        if goals.count() > 0:
-            [self.tg_client.send_message(tg_user.tg_chat_id,
-                                         f'Название: {goal.title},\n'
-                                         f'Дедлайн: {goal.due_date if goal.due_date else "Нет"} \n') for goal in goals]
-        else:
-            self.tg_client.send_message(tg_user.tg_chat_id, 'Нет целей!')
-
-    def choice_category(self, tg_user):
-        """
-        Метод выдает все категории пользователя в telegram и просит выбрать из этого
-        списка категорию в которой будет создана новая цель.
-        """
-        categories = GoalCategory.objects.filter(board__participants__user=tg_user.user, is_deleted=False)
-        self.tg_client.send_message(tg_user.tg_chat_id, 'Выберите категорию:')
-        [self.tg_client.send_message(tg_user.tg_chat_id, category.title) for category in categories]
-        self.tg_client.send_message(tg_user.tg_chat_id, 'Для отмены введите: /cancel')
-        dict_categories = {item.title: item for item in categories}
-
-        flag = True
-        while flag:
-            response = self.tg_client.get_updates(offset=self.offset)
-            for item in response.result:
-                self.offset = item.update_id + 1
-
-                if item.message.text in dict_categories:
-                    category = dict_categories.get(item.message.text)
-                    self.create_goal(tg_user, category)
-                    flag = False
-                elif item.message.text == '/cancel':
-                    flag = False
-                else:
-                    self.tg_client.send_message(tg_user.tg_chat_id, 'Категория не существует')
-
-    def create_goal(self, tg_user, category):
-        """
-            Метод создания новой цели в выбранной категории
-        """
-        self.tg_client.send_message(tg_user.tg_chat_id, 'Укажите название цели. \n'
-                                                        'Для отмены введите: /cancel')
-
-        response = self.tg_client.get_updates(offset=self.offset)
-        for item in response.result:
-            self.offset = item.update_id + 1
-
-            if item.message.text == '/cancel':
-                continue
-            else:
-                goal = Goal(title=item.message.text, category=category, user=tg_user.user)
-                goal.save()
-                self.tg_client.send_message(tg_user.tg_chat_id, f'Создана цель: {goal.title}')
+            res = self.tg_client.get_updates(offset=offset)
+            for item in res.result:
+                offset = item.update_id + 1
+                self.handle_message(item.message)
