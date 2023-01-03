@@ -46,7 +46,7 @@ class Message:
 @dataclass
 class UpdateObj:
     update_id: int
-    message: Message
+    message: Optional[Message]
 
     class Meta:
         unknown = EXCLUDE
@@ -55,7 +55,7 @@ class UpdateObj:
 @dataclass
 class GetUpdatesResponse:
     ok: bool
-    result: list[UpdateObj]
+    result: List[UpdateObj]
 
     class Meta:
         unknown = EXCLUDE
