@@ -119,9 +119,10 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         while True:
-            res = self.tg_client.get_updates(offset=self.offset)
+            res = self.tg_client.get_updates(offset=-3)
             for item in res.result:
                 self.offset = item.update_id + 1
                 print(item.message)
                 if hasattr(item, 'message'):
                     self.handle_message(item.message)
+
