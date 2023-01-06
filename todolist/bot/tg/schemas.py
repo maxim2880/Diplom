@@ -38,6 +38,8 @@ class Message:
     chat: MessageChat
     date: int
     text: Optional[str] = None
+    status: Optional[str] = None
+    until_date: Optional[int] = None
 
     class Meta:
         unknown = EXCLUDE

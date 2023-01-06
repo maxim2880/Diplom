@@ -1,5 +1,6 @@
 import datetime
 import os
+import time
 
 import marshmallow
 from django.core.management.base import BaseCommand
@@ -120,7 +121,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         while True:
-
+            time.sleep(5)
             res = self.tg_client.get_updates(offset=self.offset)
 
             for item in res.result:
