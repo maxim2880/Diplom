@@ -1,6 +1,7 @@
 import datetime
 import os
 
+import marshmallow
 from django.core.management.base import BaseCommand
 
 from bot.models import TgUser
@@ -104,7 +105,7 @@ class Command(BaseCommand):
         elif not tg_user.user:
             self.tg_client.send_message(
                 chat_id=msg.chat.id,
-                text=f'Подтвердите свой аккаунт'
+                text=f'Аккаунт подтвержден, выберите пункт меню.'
             )
             return None
 
@@ -119,10 +120,11 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         while True:
+
             res = self.tg_client.get_updates(offset=self.offset)
+
             for item in res.result:
                 self.offset = item.update_id + 1
                 print(item.message)
                 if hasattr(item, 'message'):
                     self.handle_message(item.message)
-

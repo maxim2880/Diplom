@@ -1,3 +1,4 @@
+import marshmallow
 import requests
 
 from bot.tg import schemas
@@ -14,6 +15,7 @@ class TgClient:
         url = self.get_url('getUpdates')
         response = requests.get(url, params={"offset": offset, "timeout": timeout})
         print(response.json())
+
         return schemas.GET_UPDATES_SCHEMA.load(response.json())
 
     def send_message(self, chat_id: int, text: str) -> schemas.SendMessageResponse:
